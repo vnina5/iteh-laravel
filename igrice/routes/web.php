@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \app\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/nesto', function () {
+    return 'Hello world!!';
 });
+
+
+// Route::get('/users', [UserController::class, 'index']);
+
+// Route::get('/games', [GameController::class, 'index']);
