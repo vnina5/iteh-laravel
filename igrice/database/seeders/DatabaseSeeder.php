@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use \App\Models\Game;
+use \App\Models\User;
+use \App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +17,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Category::truncate();
+        User::truncate();
+        Game::truncate();
+
+        // User::factory(5)->create();
+        Game::factory(5)->create();
+        // Game::factory(15)->create();
+
+        $this->call([
+            // CategorySeeder::class,
+            // GameSeeder::class
+        ]);
+        
     }
 }

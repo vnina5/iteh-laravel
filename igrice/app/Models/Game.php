@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
-    protected $guarded= ['id'];
+    protected $fillable = [
+        'name',
+        'price',
+        'categoryID',
+        'userID',
+        'description'
+    ];
+
+    protected $guarded = ['id'];
 
     public function category()
     {
