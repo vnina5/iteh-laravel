@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
-// use App\Http\Controller\CategoryController;
-// use App\Http\Controller\UserController;
+// use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -34,6 +34,9 @@ Route::resource('games', GameController::class);
 // Route::get('/games', 'App\Http\Controllers\GameController@index');
 Route::get('/games', [GameController::class, 'index']);
 Route::get('/games/{id}', [GameController::class, 'show']);
+Route::get('/games/category/{categoryID}', [GameController::class, 'getByCategory']);
+
+Route::get('/users', [UserController::class, 'index']);
 
 
 // Route::post('/register',[AuthController::class,'register']);
