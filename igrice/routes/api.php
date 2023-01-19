@@ -19,9 +19,9 @@ use App\Http\Controllers\API\AuthController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 Route::get('/nesto', function () {
     return 'Hello world!!';
@@ -48,16 +48,18 @@ Route::post('/login', [AuthController::class, 'login']);
 // Route::get('sneakers/type/{id}',[SneakersController::class,'getByType']);
 
 
-//  Route::group(['middleware' => ['auth:sanctum']], function () {
-//     Route::get('/profile', function(Request $request) {
-//         return auth()->user();
-//     });
+ Route::group(['middleware' => ['auth:sanctum']], function () {
 
-//     Route::get('my-sneakers',[SneakersController::class,'mySneakers']);
+    Route::get('/profile', function(Request $request) {
+        return auth()->user();
+    });
 
-//     Route::get('/logout',[AuthController::class,'logout']);
+    Route::resource('games', GameController::class)->only(['store', 'update', 'destroy']);
 
-//     Route::resource('sneakers',SneakersController::class)->only('store','update','destroy');
+    // Route::get('my-sneakers',[SneakersController::class,'mySneakers']);
 
-// });
+    Route::post('/logout', [AuthController::class, 'logout']);
+
+    
+});
 
