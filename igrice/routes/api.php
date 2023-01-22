@@ -31,7 +31,6 @@ Route::resource('games', GameController::class);
 // Route::resource('category', CategoryController::class);
 // Route::resource('users', UserController::class);
 
-
 // Route::get('/games', 'App\Http\Controllers\GameController@index');
 Route::get('/games', [GameController::class, 'index']);
 Route::get('/games/{id}', [GameController::class, 'show']);
@@ -56,7 +55,11 @@ Route::post('/login', [AuthController::class, 'login']);
 
     Route::resource('games', GameController::class)->only(['store', 'update', 'destroy']);
 
-    // Route::get('my-sneakers',[SneakersController::class,'mySneakers']);
+    Route::post('/games', [GameController::class, 'store']);
+    Route::put('/games/{id}', [GameController::class, 'update']);
+    Route::delete('/games/{id}', [GameController::class, 'destroy']);
+
+    Route::get('/mygames',[GameController::class,'getForUser']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 
