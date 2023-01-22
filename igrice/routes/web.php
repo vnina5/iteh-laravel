@@ -15,9 +15,9 @@ use \app\Http\Controllers\UserController;
 |
 */
 
-Route::get('/nesto', function () {
-    return 'Hello world!!';
-});
+// Route::get('/nesto', function () {
+//     return 'Hello world!!';
+// });
 
 
 // Route::get('/users', [UserController::class, 'index']);
